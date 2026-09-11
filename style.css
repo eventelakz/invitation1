@@ -146,6 +146,8 @@ textarea {
   box-shadow:
     0 30px 70px rgba(39,55,46,0.15);
 
+  z-index: 3;
+
 }
 
 
