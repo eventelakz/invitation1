@@ -180,6 +180,10 @@ textarea {
   transition:
     transform 1.3s ease 0.2s;
 
+  z-index: 2;
+
+}
+
 }
 
 
