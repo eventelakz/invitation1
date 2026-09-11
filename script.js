@@ -106,21 +106,42 @@ openButton.addEventListener(
   "click",
   function() {
 
+    /* Prevent double click */
+    if (opening.classList.contains("opened")) {
+      return;
+    }
+
+    /* Start envelope animation */
     opening.classList.add("opened");
 
+
+    /*
+      The envelope animation takes about 1.5 seconds.
+      We DO NOT show the main website during this time.
+    */
+
     setTimeout(function() {
+
+      /*
+        First hide the opening screen.
+        The website is still hidden at this moment.
+      */
 
       opening.classList.add("hidden");
 
-      mainContent.classList.add("visible");
+    }, 1700);
 
-    }, 900);
 
+    /*
+      Only after the opening screen has completely
+      disappeared do we reveal the website.
+    */
 
     setTimeout(function() {
 
-      musicControl.style.display =
-        "flex";
+      mainContent.classList.add("visible");
+
+      musicControl.style.display = "flex";
 
       music.volume = 0.35;
 
@@ -133,14 +154,19 @@ openButton.addEventListener(
 
       });
 
-    }, 1500);
+    }, 1900);
 
+
+    /*
+      Start automatic scrolling only after
+      the invitation has appeared.
+    */
 
     setTimeout(function() {
 
       startAutoScroll();
 
-    }, 4500);
+    }, 5000);
 
   }
 );
