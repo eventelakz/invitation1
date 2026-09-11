@@ -1,181 +1,220 @@
-/* =====================================================
-   EVENTELA - WEDDING TEMPLATE
-   НАСТРОЙКИ САЙТА
-===================================================== */
+/* =========================================
+   EVENTELA
+   WEDDING SETTINGS
+========================================= */
 
 const WEDDING = {
 
-  // Имена
   names: "Ваши имена",
 
-  // Дата свадьбы
   dateText: "17 сентября 2026",
 
-  // Дата и время для countdown
   dateISO: "2026-09-17T18:00:00+05:00",
 
-  // Место
   venue: "Ресторан",
 
-  // Адрес
   address: "Адрес мероприятия",
 
-  // Ссылка на 2GIS
   map: "ССЫЛКА_2GIS",
 
-  // Музыка
-  music: "music.mp3",
+  whatsapp: "77475308178",
 
-  // Видео на заставке
-  introVideo: "intro.mp4",
-
-  // WhatsApp
-  whatsapp: "77000000000",
-
-  // Google Apps Script
-  googleScriptUrl: "YOUR_GOOGLE_APPS_SCRIPT_URL"
+  googleScriptUrl:
+    "YOUR_GOOGLE_APPS_SCRIPT_URL"
 
 };
 
 
-/* =====================================================
+/* =========================================
    ELEMENTS
-===================================================== */
+========================================= */
 
-const intro = document.getElementById("intro");
-const openButton = document.getElementById("openButton");
-const mainContent = document.getElementById("mainContent");
+const opening =
+  document.getElementById("opening");
 
-const music = document.getElementById("music");
-const musicControl = document.getElementById("musicControl");
+const envelope =
+  document.getElementById("envelope");
 
-const guestForm = document.getElementById("guestForm");
-const formSuccess = document.getElementById("formSuccess");
+const openButton =
+  document.getElementById("openButton");
 
+const mainContent =
+  document.getElementById("mainContent");
 
-/* =====================================================
-   INSERT WEDDING DATA
-===================================================== */
+const music =
+  document.getElementById("music");
 
-document.getElementById("introNames").textContent =
-  WEDDING.names;
+const musicControl =
+  document.getElementById("musicControl");
 
-document.getElementById("heroNames").textContent =
-  WEDDING.names;
+const guestForm =
+  document.getElementById("guestForm");
 
-document.getElementById("heroDate").textContent =
-  WEDDING.dateText;
-
-document.getElementById("venue").textContent =
-  WEDDING.venue;
-
-document.getElementById("address").textContent =
-  WEDDING.address;
+const formSuccess =
+  document.getElementById("formSuccess");
 
 
-/* =====================================================
-   MAP
-===================================================== */
+/* =========================================
+   NAMES
+========================================= */
 
-const mapLink = document.getElementById("mapLink");
+document.querySelectorAll(
+  ".opening-names, .hero-video-content h1"
+).forEach(function(element) {
 
-mapLink.href = WEDDING.map;
+  element.textContent =
+    WEDDING.names;
+
+});
 
 
-/* =====================================================
+/* =========================================
+   LOCATION
+========================================= */
+
+document.getElementById("venue")
+  .textContent = WEDDING.venue;
+
+document.getElementById("address")
+  .textContent = WEDDING.address;
+
+document.getElementById("mapLink")
+  .href = WEDDING.map;
+
+
+/* =========================================
    WHATSAPP
-===================================================== */
-
-const whatsappLink =
-  document.getElementById("whatsappLink");
+========================================= */
 
 const whatsappMessage =
   encodeURIComponent(
     "Здравствуйте! Хотела бы узнать подробнее о цифровом приглашении EVENTELA."
   );
 
-whatsappLink.href =
+document.getElementById("whatsappLink").href =
   "https://wa.me/" +
   WEDDING.whatsapp +
   "?text=" +
   whatsappMessage;
 
 
-/* =====================================================
+/* =========================================
    OPEN INVITATION
-===================================================== */
+========================================= */
 
-openButton.addEventListener("click", function() {
+openButton.addEventListener(
+  "click",
+  function() {
 
-  intro.classList.add("hidden");
+    opening.classList.add("opened");
 
-  mainContent.classList.add("visible");
+    setTimeout(function() {
 
-  musicControl.style.display = "block";
+      opening.classList.add("hidden");
 
-  music.volume = 0.35;
+      mainContent.classList.add("visible");
 
-  music.play().catch(function(error) {
-    console.log("Music autoplay blocked:", error);
-  });
-
-  setTimeout(function() {
-    startAutoScroll();
-  }, 3000);
-
-});
+    }, 900);
 
 
-/* =====================================================
-   MUSIC CONTROL
-===================================================== */
+    setTimeout(function() {
+
+      musicControl.style.display =
+        "flex";
+
+      music.volume = 0.35;
+
+      music.play().catch(function(error) {
+
+        console.log(
+          "Music autoplay blocked:",
+          error
+        );
+
+      });
+
+    }, 1500);
+
+
+    setTimeout(function() {
+
+      startAutoScroll();
+
+    }, 4500);
+
+  }
+);
+
+
+/* =========================================
+   MUSIC
+========================================= */
 
 let musicPlaying = true;
 
-musicControl.addEventListener("click", function() {
 
-  if (musicPlaying) {
+musicControl.addEventListener(
+  "click",
+  function() {
 
-    music.pause();
+    if (musicPlaying) {
 
-    musicControl.textContent = "♪";
+      music.pause();
 
-    musicPlaying = false;
+      musicPlaying = false;
 
-  } else {
+      musicControl
+        .querySelector(".music-symbol")
+        .textContent = "♪";
 
-    music.play();
+    } else {
 
-    musicControl.textContent = "♫";
+      music.play();
 
-    musicPlaying = true;
+      musicPlaying = true;
+
+      musicControl
+        .querySelector(".music-symbol")
+        .textContent = "♫";
+
+    }
 
   }
+);
 
-});
 
-
-/* =====================================================
+/* =========================================
    COUNTDOWN
-===================================================== */
+========================================= */
 
 const weddingDate =
-  new Date(WEDDING.dateISO).getTime();
+  new Date(
+    WEDDING.dateISO
+  ).getTime();
 
 
 function updateCountdown() {
 
-  const now = new Date().getTime();
+  const now =
+    new Date().getTime();
 
-  const distance = weddingDate - now;
+  const distance =
+    weddingDate - now;
 
 
   if (distance <= 0) {
 
-    document.getElementById("days").textContent = "00";
-    document.getElementById("hours").textContent = "00";
-    document.getElementById("minutes").textContent = "00";
-    document.getElementById("seconds").textContent = "00";
+    document.getElementById("days")
+      .textContent = "00";
+
+    document.getElementById("hours")
+      .textContent = "00";
+
+    document.getElementById("minutes")
+      .textContent = "00";
+
+    document.getElementById("seconds")
+      .textContent = "00";
 
     return;
 
@@ -183,37 +222,53 @@ function updateCountdown() {
 
 
   const days =
-    Math.floor(distance / (1000 * 60 * 60 * 24));
+    Math.floor(
+      distance /
+      (1000 * 60 * 60 * 24)
+    );
+
 
   const hours =
     Math.floor(
-      (distance % (1000 * 60 * 60 * 24))
-      / (1000 * 60 * 60)
+      (distance %
+        (1000 * 60 * 60 * 24)) /
+      (1000 * 60 * 60)
     );
+
 
   const minutes =
     Math.floor(
-      (distance % (1000 * 60 * 60))
-      / (1000 * 60)
+      (distance %
+        (1000 * 60 * 60)) /
+      (1000 * 60)
     );
+
 
   const seconds =
     Math.floor(
-      (distance % (1000 * 60))
-      / 1000
+      (distance %
+        (1000 * 60)) /
+      1000
     );
 
 
-  document.getElementById("days").textContent =
+  document.getElementById("days")
+    .textContent =
     String(days).padStart(2, "0");
 
-  document.getElementById("hours").textContent =
+
+  document.getElementById("hours")
+    .textContent =
     String(hours).padStart(2, "0");
 
-  document.getElementById("minutes").textContent =
+
+  document.getElementById("minutes")
+    .textContent =
     String(minutes).padStart(2, "0");
 
-  document.getElementById("seconds").textContent =
+
+  document.getElementById("seconds")
+    .textContent =
     String(seconds).padStart(2, "0");
 
 }
@@ -221,12 +276,15 @@ function updateCountdown() {
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+setInterval(
+  updateCountdown,
+  1000
+);
 
 
-/* =====================================================
+/* =========================================
    SCROLL REVEAL
-===================================================== */
+========================================= */
 
 const revealElements =
   document.querySelectorAll(".reveal");
@@ -237,58 +295,84 @@ const revealObserver =
 
     function(entries) {
 
-      entries.forEach(function(entry) {
+      entries.forEach(
+        function(entry) {
 
-        if (entry.isIntersecting) {
+          if (
+            entry.isIntersecting
+          ) {
 
-          entry.target.classList.add("visible");
+            entry.target
+              .classList
+              .add("visible");
+
+          }
 
         }
-
-      });
+      );
 
     },
 
     {
-      threshold: 0.15
+      threshold: 0.12
     }
 
   );
 
 
-revealElements.forEach(function(element) {
+revealElements.forEach(
+  function(element) {
 
-  revealObserver.observe(element);
+    revealObserver.observe(element);
 
-});
+  }
+);
 
 
-/* =====================================================
-   SLOW AUTO SCROLL
-===================================================== */
+/* =========================================
+   AUTO SCROLL
+========================================= */
 
-let autoScroll;
+let autoScroll = null;
+
 let autoScrolling = false;
 
 
 function startAutoScroll() {
 
-  if (autoScrolling) return;
+  if (autoScrolling) {
+    return;
+  }
+
 
   autoScrolling = true;
 
-  autoScroll = setInterval(function() {
 
-    window.scrollBy(0, 1);
+  autoScroll =
+    setInterval(
+      function() {
 
-  }, 70);
+        window.scrollBy(
+          0,
+          1
+        );
+
+      },
+      70
+    );
 
 }
 
 
 function stopAutoScroll() {
 
-  clearInterval(autoScroll);
+  if (autoScroll) {
+
+    clearInterval(
+      autoScroll
+    );
+
+  }
 
   autoScrolling = false;
 
@@ -301,11 +385,13 @@ window.addEventListener(
   { passive: true }
 );
 
+
 window.addEventListener(
   "wheel",
   stopAutoScroll,
   { passive: true }
 );
+
 
 window.addEventListener(
   "mousedown",
@@ -313,63 +399,84 @@ window.addEventListener(
 );
 
 
-/* =====================================================
-   RSVP FORM
-===================================================== */
+/* =========================================
+   RSVP
+========================================= */
 
-guestForm.addEventListener("submit", async function(event) {
+guestForm.addEventListener(
+  "submit",
+  async function(event) {
 
-  event.preventDefault();
-
-
-  const submitButton =
-    guestForm.querySelector(".submit-button");
-
-  submitButton.disabled = true;
-
-  submitButton.textContent =
-    "Отправляем...";
+    event.preventDefault();
 
 
-  const formData =
-    new FormData(guestForm);
-
-
-  try {
-
-    const response =
-      await fetch(
-        WEDDING.googleScriptUrl,
-        {
-          method: "POST",
-          body: formData
-        }
+    const submitButton =
+      guestForm.querySelector(
+        ".rsvp-button"
       );
 
 
-    if (!response.ok) {
-      throw new Error("Request failed");
-    }
+    submitButton.disabled =
+      true;
 
-
-    guestForm.style.display = "none";
-
-    formSuccess.style.display = "block";
-
-
-  } catch (error) {
-
-    console.error(error);
-
-    submitButton.disabled = false;
 
     submitButton.textContent =
-      "Попробовать снова";
+      "Отправляем...";
 
-    alert(
-      "Не удалось отправить ответ. Пожалуйста, попробуйте ещё раз."
-    );
+
+    const formData =
+      new FormData(
+        guestForm
+      );
+
+
+    try {
+
+      const response =
+        await fetch(
+          WEDDING.googleScriptUrl,
+          {
+            method: "POST",
+            body: formData
+          }
+        );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          "Request failed"
+        );
+
+      }
+
+
+      guestForm.style.display =
+        "none";
+
+
+      formSuccess.style.display =
+        "block";
+
+
+    } catch (error) {
+
+      console.error(error);
+
+
+      submitButton.disabled =
+        false;
+
+
+      submitButton.textContent =
+        "Попробовать снова";
+
+
+      alert(
+        "Не удалось отправить ответ. Пожалуйста, попробуйте ещё раз."
+      );
+
+    }
 
   }
-
-});
+);
