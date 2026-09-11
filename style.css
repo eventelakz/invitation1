@@ -251,7 +251,7 @@ textarea {
 
   transform-origin: top center;
 
-  z-index: 4;
+  z-index: 5;
 
   transition:
     transform 1.2s cubic-bezier(.77,0,.18,1);
