@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ваши имена | Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       INTRO
+  ========================== -->
+
+  <section class="intro" id="intro">
+
+    <video
+      class="intro-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src="intro.mp4" type="video/mp4">
+    </video>
+
+    <div class="intro-overlay"></div>
+
+    <div class="intro-content">
+
+      <p class="intro-small">
+        WEDDING INVITATION
+      </p>
+
+      <h1 id="introNames">
+        Ваши имена
+      </h1>
+
+      <p class="intro-date">
+        17 СЕНТЯБРЯ 2026
+      </p>
+
+      <button class="open-button" id="openButton">
+        Открыть приглашение
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main id="mainContent" class="main-content">
+
+    <!-- HERO -->
+
+    <section class="hero section">
+
+      <div class="hero-inner">
+
+        <p class="eyebrow">
+          OUR SPECIAL DAY
+        </p>
+
+        <h2 id="heroNames">
+          Ваши имена
+        </h2>
+
+        <div class="hero-line"></div>
+
+        <p id="heroDate">
+          17 сентября 2026
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- INVITATION -->
+
+    <section class="invitation section reveal">
+
+      <p class="eyebrow">
+        DEAR GUESTS
+      </p>
+
+      <h2>
+        Мы будем рады<br>
+        разделить этот день с вами
+      </h2>
+
+      <p class="invitation-text">
+        Приглашаем вас стать частью нашего особенного дня
+        и вместе отпраздновать начало новой главы нашей истории.
+      </p>
+
+    </section>
+
+
+    <!-- PHOTO -->
+
+    <section class="photo-section reveal">
+
+      <img src="photo1.jpg" alt="Wedding">
+
+    </section>
+
+
+    <!-- COUNTDOWN -->
+
+    <section class="countdown-section section reveal">
+
+      <p class="eyebrow">
+        UNTIL OUR DAY
+      </p>
+
+      <h2>
+        До нашей свадьбы
+      </h2>
+
+      <div class="countdown">
+
+        <div class="countdown-item">
+          <span id="days">00</span>
+          <small>дней</small>
+        </div>
+
+        <div class="countdown-item">
+          <span id="hours">00</span>
+          <small>часов</small>
+        </div>
+
+        <div class="countdown-item">
+          <span id="minutes">00</span>
+          <small>минут</small>
+        </div>
+
+        <div class="countdown-item">
+          <span id="seconds">00</span>
+          <small>секунд</small>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CALENDAR -->
+
+    <section class="calendar-section section reveal">
+
+      <p class="eyebrow">
+        SAVE THE DATE
+      </p>
+
+      <h2>
+        Сентябрь 2026
+      </h2>
+
+      <div class="calendar">
+
+        <div class="calendar-week">
+          <span>ПН</span>
+          <span>ВТ</span>
+          <span>СР</span>
+          <span>ЧТ</span>
+          <span>ПТ</span>
+          <span>СБ</span>
+          <span>ВС</span>
+        </div>
+
+        <div class="calendar-days">
+
+          <span class="empty"></span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>10</span>
+          <span>11</span>
+          <span>12</span>
+          <span>13</span>
+
+          <span>14</span>
+          <span>15</span>
+          <span>16</span>
+
+          <span class="wedding-day">
+            17
+          </span>
+
+          <span>18</span>
+          <span>19</span>
+          <span>20</span>
+
+          <span>21</span>
+          <span>22</span>
+          <span>23</span>
+          <span>24</span>
+          <span>25</span>
+          <span>26</span>
+          <span>27</span>
+
+          <span>28</span>
+          <span>29</span>
+          <span>30</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PHOTO 2 -->
+
+    <section class="editorial-photo reveal">
+
+      <img src="photo2.jpg" alt="Wedding">
+
+    </section>
+
+
+    <!-- PROGRAM -->
+
+    <section class="program-section section reveal">
+
+      <p class="eyebrow">
+        PROGRAM
+      </p>
+
+      <h2>
+        Важные моменты дня
+      </h2>
+
+      <div class="program">
+
+        <div class="program-item">
+
+          <span class="program-time">
+            17:30
+          </span>
+
+          <div>
+            <h3>
+              Сбор гостей
+            </h3>
+
+            <p>
+              Будем рады встретить вас
+              перед началом торжества.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="program-item">
+
+          <span class="program-time">
+            18:00
+          </span>
+
+          <div>
+            <h3>
+              Начало торжества
+            </h3>
+
+            <p>
+              Начинаем наш особенный вечер.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="program-item">
+
+          <span class="program-time">
+            19:00
+          </span>
+
+          <div>
+            <h3>
+              Праздничный ужин
+            </h3>
+
+            <p>
+              Время для красивого вечера,
+              общения и приятных воспоминаний.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PHOTO 3 -->
+
+    <section class="editorial-photo tall reveal">
+
+      <img src="photo3.jpg" alt="Wedding">
+
+    </section>
+
+
+    <!-- LOCATION -->
+
+    <section class="location-section section reveal">
+
+      <p class="eyebrow">
+        LOCATION
+      </p>
+
+      <h2 id="venue">
+        Ресторан
+      </h2>
+
+      <p id="address">
+        Адрес мероприятия
+      </p>
+
+      <a
+        href="#"
+        id="mapLink"
+        class="map-button"
+        target="_blank"
+      >
+        Открыть в 2GIS
+      </a>
+
+    </section>
+
+
+    <!-- PHOTO 4 -->
+
+    <section class="photo-section reveal">
+
+      <img src="photo4.jpg" alt="Wedding">
+
+    </section>
+
+
+    <!-- RSVP -->
+
+    <section class="rsvp-section section reveal">
+
+      <p class="eyebrow">
+        RSVP
+      </p>
+
+      <h2>
+        Подтвердите<br>
+        ваше присутствие
+      </h2>
+
+      <p class="rsvp-description">
+        Пожалуйста, сообщите нам,
+        сможете ли вы разделить этот день с нами.
+      </p>
+
+
+      <form id="guestForm">
+
+        <input
+          type="text"
+          id="guestName"
+          name="name"
+          placeholder="Ваше имя и фамилия"
+          required
+        >
+
+
+        <select
+          id="attendance"
+          name="attendance"
+          required
+        >
+
+          <option value="">
+            Ваш ответ
+          </option>
+
+          <option value="Буду">
+            С удовольствием буду
+          </option>
+
+          <option value="Не смогу">
+            К сожалению, не смогу
+          </option>
+
+        </select>
+
+
+        <select
+          id="guests"
+          name="guests"
+        >
+
+          <option value="">
+            Количество гостей
+          </option>
+
+          <option value="1">
+            1 гость
+          </option>
+
+          <option value="2">
+            2 гостя
+          </option>
+
+          <option value="3">
+            3 гостя
+          </option>
+
+          <option value="4">
+            4 гостя
+          </option>
+
+        </select>
+
+
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Ваши пожелания"
+          rows="4"
+        ></textarea>
+
+
+        <button
+          type="submit"
+          class="submit-button"
+        >
+          Отправить ответ
+        </button>
+
+      </form>
+
+
+      <div
+        class="form-success"
+        id="formSuccess"
+      >
+        Спасибо! Ваш ответ получен 🤍
+      </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="final-section">
+
+      <div class="final-overlay"></div>
+
+      <img
+        src="photo1.jpg"
+        alt="Wedding"
+        class="final-photo"
+      >
+
+      <div class="final-content">
+
+        <p class="eyebrow">
+          WITH LOVE
+        </p>
+
+        <h2>
+          До встречи<br>
+          17 сентября
+        </h2>
+
+        <p>
+          Будем счастливы разделить<br>
+          этот день с вами.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- EVENTELA -->
+
+    <footer class="eventela-footer">
+
+      <p class="footer-small">
+        DIGITAL WEDDING INVITATIONS
+      </p>
+
+      <h3>
+        EVENTELA.KZ
+      </h3>
+
+      <p class="footer-text">
+        Создаём приглашения,<br>
+        которые хочется сохранить.
+      </p>
+
+      <p class="footer-question">
+        Хотите такое же приглашение<br>
+        для вашего особенного дня?
+      </p>
+
+      <a
+        href="#"
+        id="whatsappLink"
+        class="whatsapp-button"
+        target="_blank"
+      >
+        Перейти в WhatsApp
+      </a>
+
+    </footer>
+
+  </main>
+
+
+  <!-- MUSIC -->
+
+  <audio
+    id="music"
+    loop
+    preload="auto"
+  >
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <button
+    id="musicControl"
+    class="music-control"
+  >
+    ♫
+  </button>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
