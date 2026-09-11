@@ -8,7 +8,8 @@ function doPost(e) {
         .getSheetByName("Guests");
 
 
-    const data = e.parameter;
+    const data =
+      e.parameter;
 
 
     sheet.appendRow([
